@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Product extends Model
 {
@@ -13,6 +14,8 @@ class Product extends Model
         'name',
         'price',
         'description',
+        'serial_id',
+        'order_id'
     ];
 
     public function categories(){
@@ -21,5 +24,20 @@ class Product extends Model
 
     public function productAttributes(){
         return $this->hasMany(ProductAttribute::class);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->serial_id = self::generateProductId();
+        });
+    }
+
+    private static function generateProductId()
+    {
+        $serialId = 'PROD-' . Str::uuid();
+        return $serialId;
     }
 }

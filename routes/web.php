@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,8 @@ Route::get('/register', function () {
 })->name('getRegister');
 Route::post('/login', [UserController::class, 'login'])->name('postLogin');
 Route::post('/register', [UserController::class, 'register'])->name('postRegister');
+
+Route::get('/newproduct', [ProductController::class, 'newProduct'])->name('getNewProduct');
 
 Route::get('/component', function(){
     return view('testpage');
