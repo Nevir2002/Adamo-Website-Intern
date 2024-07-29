@@ -18,3 +18,7 @@ Route::get('/register', function () {
 })->name('getRegister');
 Route::post('/login', [UserController::class, 'login'])->name('postLogin');
 Route::post('/register', [UserController::class, 'register'])->name('postRegister');
+
+Route::get('/component', function(){
+    return view('testpage');
+})->name('testPage');

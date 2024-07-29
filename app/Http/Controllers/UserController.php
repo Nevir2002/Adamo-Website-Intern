@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     //
 
-    private User $user;
+    // private User $user;
     protected $userService;
 
     // public function __construct(User $user)
