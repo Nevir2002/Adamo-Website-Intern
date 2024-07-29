@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,10 +14,16 @@ class UserController extends Controller
     //
 
     private User $user;
+    protected $userService;
 
-    public function __construct(User $user)
+    // public function __construct(User $user)
+    // {
+    //     $this->user = $user;
+    // }
+
+    public function __construct(UserService $userService)
     {
-        $this->user = $user;
+        $this->userService = $userService;
     }
 
     public function login(LoginRequest $request)
@@ -41,7 +48,7 @@ class UserController extends Controller
         // don't handle failed submits because it's been taken cared of by request form
 
         $fields['password'] = bcrypt($fields['password']);
-        $user = $this->user->create($fields);
+        $user = $this->userService->createUser($fields);
 
         // if want to automatically login after successful register
         // Auth::login($user);
