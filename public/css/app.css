@@ -2,10 +2,24 @@ body {
     font-family: "Montserrat", sans-serif;
     background-color: #f4f4f4;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     height: 100vh;
     margin: 0;
+}
+#main-wrapper {
+    /* Maximum width of the main content area */
+    /* max-width: 1200px;  */
+    width: 100%;
+    margin: 0 auto; /* Center the main wrapper horizontally */
+    /* Horizontal padding */
+    /* padding: 0 20px;  */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Page wrapper styling */
+.page-wrapper {
+    padding: 20px 0; /* Vertical padding for content spacing */
 }
 .login-container {
     background: #fff;
@@ -73,4 +87,44 @@ body {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
+}
+
+nav.header {
+    background-color: #333;
+    padding: 1rem;
+}
+nav.header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+nav.header ul li {
+    display: inline;
+}
+nav.header ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+nav.header ul li a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+nav.header form {
+    display: inline;
+}
+nav.header button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+nav.header button:hover {
+    background-color: #575757;
+    border-radius: 5px;
 }

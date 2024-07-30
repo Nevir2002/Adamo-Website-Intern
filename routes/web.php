@@ -19,9 +19,12 @@ Route::get('/register', function () {
 })->name('getRegister');
 Route::post('/login', [UserController::class, 'login'])->name('postLogin');
 Route::post('/register', [UserController::class, 'register'])->name('postRegister');
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
+Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/newproduct', [ProductController::class, 'newProduct'])->name('getNewProduct');
 
 Route::get('/component', function(){
-    return view('testpage');
+    // return view('testpage');
+    return view('products.index');
 })->name('testPage');

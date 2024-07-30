@@ -2,10 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('components.head')
+{{-- <x-head></x-head> --}}
 
 <body>
     <div id="main-wrapper">
         @include('components.header')
+        {{-- <x-header></x-header>  --}}
         <div class="page-wrapper">
             @yield('content')
         </div>

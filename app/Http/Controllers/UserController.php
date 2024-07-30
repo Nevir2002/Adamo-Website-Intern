@@ -7,6 +7,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -14,12 +15,12 @@ class UserController extends Controller
     //
 
     // private User $user;
-    protected $userService;
-
     // public function __construct(User $user)
     // {
     //     $this->user = $user;
     // }
+    protected $userService;
+
 
     public function __construct(UserService $userService)
     {
@@ -32,7 +33,7 @@ class UserController extends Controller
 
         if (Auth::attempt(['email' => $fields['email'], 'password' => $fields['password']])) {
             $request->session()->regenerate(); // renew session ID to prevent some scam stuff (fake old session ID)
-            return to_route('test');
+            return to_route('products');
         }
 
         // if auth failed => flash error
@@ -56,5 +57,11 @@ class UserController extends Controller
 
         // else route back to login
         return to_route('getLogin');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return to_route('products');
     }
 }
