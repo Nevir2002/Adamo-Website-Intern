@@ -39,7 +39,7 @@ class UserController extends Controller
         // if auth failed => flash error
         $request->session()->flash('error', 'Bad credentials');
         // $request->session()->put('hahahaha', 'asdhahsd');
-        return to_route('getLogin')->withInput($request->except('password')); // keep old inputs except password
+        return to_route('login')->withInput($request->except('password')); // keep old inputs except password
         ;
     }
 
@@ -56,7 +56,7 @@ class UserController extends Controller
         // return to_route('index');
 
         // else route back to login
-        return to_route('getLogin');
+        return to_route('login');
     }
 
     public function logout()

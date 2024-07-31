@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->string('serial_id')->after('description');
-            $table->foreignId('order_id')->nullable()->after('serial_id')->constrained()->cascadeOnDelete();
+            $table->string('thumbnail')->after('description')->default('images/filler-image-1.png');
+            $table->foreignId('category_id')->after('thumbnail')->default(1)->constrained()->cascadeOnDelete();
+            $table->softDeletes();
         });
     }
 
@@ -25,9 +26,9 @@ return new class extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->dropColumn('serial_id');
-            $table->dropForeign('products_order_id_foreign');
-            $table->dropColumn('order_id');
+            $table->dropColumn('category_id');
+            $table->dropColumn('thumbnail');
+            $table->dropSoftDeletes();
         });
     }
 };

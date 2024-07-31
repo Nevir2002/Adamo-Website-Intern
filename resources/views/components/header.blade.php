@@ -1,6 +1,6 @@
 <nav class="header">
     <ul>
-        <li><a href="{{ route('testPage') }}">Home</a></li>
+        <li><a href="{{ route('products') }}">Home</a></li>
         {{-- <li><a href="{{ route('about') }}">About</a></li> --}}
         {{-- <li><a href="{{ route('contact') }}">Contact</a></li> --}}
         @auth
@@ -12,7 +12,7 @@
                 </form>
             </li>
         @else
-            <li><a href="{{ route('getLogin') }}">Login</a></li>
+            <li><a href="{{ route('login') }}">Login</a></li>
             <li><a href="{{ route('getRegister') }}">Register</a></li>
         @endauth
     </ul>

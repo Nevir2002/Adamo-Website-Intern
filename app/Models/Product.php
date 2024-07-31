@@ -32,6 +32,8 @@ class Product extends Model
 
         static::creating(function ($model) {
             $model->serial_id = self::generateProductId();
+            $randomNumber = rand(1,6);
+            $model->thumbnail = 'images/filler-image-' . $randomNumber . '.png';
         });
     }
 

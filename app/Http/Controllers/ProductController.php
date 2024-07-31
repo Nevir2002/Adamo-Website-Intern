@@ -19,11 +19,17 @@ class ProductController extends Controller
 
     public function index()
     {
-        // $products = $this->productService->getAllProductsPaginate(10);
-        $products = $this->productService->getAllProducts();
-        dd($products);
+        // $products = $this->productService->getAllProducts();
+        $products = $this->productService->getAllProductsPaginate(5*2); // 5 products per row, 2 rows, 10 products per page
+        // dd($products);
         return view('products.index', ['products' => $products]);
     }
+
+    public function show(Product $product){
+        $previousUrl = url()->previous();
+        return view('products.detail', ['product' => $product, 'previousUrl' => $previousUrl]);
+    }
+
     public function newProduct()
     {
         Product::create(['name' => 'xdxd', 'price' => 12323.41, 'description' => 'ashdhasdh']);

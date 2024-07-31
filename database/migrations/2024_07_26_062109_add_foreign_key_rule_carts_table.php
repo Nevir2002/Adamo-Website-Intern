@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('carts', function (Blueprint $table) {
             //
             $table->dropColumn('user_id');
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->after('id')->nullable();
+            $table->foreignId('user_id')->after('id')->nullable()->constrained()->cascadeOnDelete();
         });
     }
 
@@ -25,7 +25,7 @@ return new class extends Migration
     {
         Schema::table('carts', function (Blueprint $table) {
             //
-            $table->dropForeign('user_id');
+            $table->dropForeign('carts_user_id_foreign');
         });
     }
 };

@@ -22,6 +22,7 @@ body {
     padding: 20px 0; /* Vertical padding for content spacing */
 }
 .login-container {
+    margin: auto; /* center div :) */
     background: #fff;
     padding: 2rem;
     border-radius: 8px;
